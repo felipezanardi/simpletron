@@ -2,21 +2,21 @@
 #include <stdlib.h> // exit()
 #include <locale.h> // setlocale()
 
-// Operações de Entrada/Saída
+// OperaÃ§Ãµes de Entrada/SaÃ­da
 #define READ        10
 #define WRITE       11
 
-// Operações de Carregamento/Armazenamento
+// OperaÃ§Ãµes de Carregamento/Armazenamento
 #define LOAD        20
 #define STORE       21
 
-// Operações Aritméticas
+// OperaÃ§Ãµes AritmÃ©ticas
 #define ADD         30
 #define SUBTRACT    31
 #define DIVIDE      32
 #define MULTIPLY    33
 
-// Operações de Transferência de Controle (resultado no acumulador)
+// OperaÃ§Ãµes de TransferÃªncia de Controle (resultado no acumulador)
 #define BRANCH      40
 #define BRANCHNEG   41
 #define BRANCHZERO  42
@@ -29,7 +29,7 @@
 #define MAX         +9999
 #define MIN         -9999
 
-// Variáveis globais
+// VariÃ¡veis globais
 int memoria[MEM] = {0};
 int acumulador = 0;
 
@@ -71,8 +71,8 @@ void load()
         }
         else if (input < MIN || input > MAX)
         {
-            printf("Número fora do intervalo (%+d, %+d)!\n", MIN, MAX);
-            printf("Insira uma operação válida.\n");
+            printf("NÃºmero fora do intervalo (%+d, %+d)!\n", MIN, MAX);
+            printf("Insira uma operaÃ§Ã£o vÃ¡lida.\n");
         }
         else
         {
@@ -85,7 +85,7 @@ void load()
 
 void execute()
 {
-    printf("*** Início da execução do programa ***\n");
+    printf("*** InÃ­cio da execuÃ§Ã£o do programa ***\n");
 
     while (contadorInstrucao < MEM)
     {
@@ -103,13 +103,13 @@ void execute()
                             // Erro Fatal
                             if (memoria[operando] < MIN || memoria[operando] > MAX)
                             {
-                                printf("*** Número fora do intervalo (%+d, %+d)! ***\n", MIN, MAX);
-                                printf("*** Interrupção anormal da execução do Simpletron ***\n");
+                                printf("*** NÃºmero fora do intervalo (%+d, %+d)! ***\n", MIN, MAX);
+                                printf("*** InterrupÃ§Ã£o anormal da execuÃ§Ã£o do Simpletron ***\n");
                                 exit(1);
                             }
                             break;
 
-            case WRITE:     printf("Número: %+05d\n", memoria[operando]);
+            case WRITE:     printf("NÃºmero: %+05d\n", memoria[operando]);
                             break;
 
             case LOAD:      acumulador = memoria[operando];
@@ -123,8 +123,8 @@ void execute()
                             // Erro Fatal
                             if (acumulador < MIN || acumulador > MAX)
                             {
-                                printf("*** Soma - Overflow no acumulador ***\n", MIN, MAX);
-                                printf("*** Interrupção anormal da execução do Simpletron ***\n");
+                                printf("*** Soma - Overflow no acumulador ***\n");
+                                printf("*** InterrupÃ§Ã£o anormal da execuÃ§Ã£o do Simpletron ***\n");
                                 exit(1);
                             }
                             break;
@@ -134,8 +134,8 @@ void execute()
                             // Erro Fatal
                             if (acumulador < MIN || acumulador > MAX)
                             {
-                                printf("*** Subtração - Overflow no acumulador ***\n", MIN, MAX);
-                                printf("*** Interrupção anormal da execução do Simpletron ***\n");
+                                printf("*** SubtraÃ§Ã£o - Overflow no acumulador ***\n");
+                                printf("*** InterrupÃ§Ã£o anormal da execuÃ§Ã£o do Simpletron ***\n");
                                 exit(1);
                             }
                             break;
@@ -147,7 +147,7 @@ void execute()
                             else // Erro Fatal
                             {
                                 printf("*** Tentativa de dividir por zero ***\n");
-                                printf("*** Interrupção anormal da execução do Simpletron ***\n");
+                                printf("*** InterrupÃ§Ã£o anormal da execuÃ§Ã£o do Simpletron ***\n");
                                 exit(1);
                             }
                             break;
@@ -157,8 +157,8 @@ void execute()
                             // Erro Fatal
                             if (acumulador < MIN || acumulador > MAX)
                             {
-                                printf("*** Multiplicação - Overflow no acumulador ***\n", MIN, MAX);
-                                printf("*** Interrupção anormal da execução do Simpletron ***\n");
+                                printf("*** MultiplicaÃ§Ã£o - Overflow no acumulador ***\n");
+                                printf("*** InterrupÃ§Ã£o anormal da execuÃ§Ã£o do Simpletron ***\n");
                                 exit(1);
                             }
                             break;
@@ -180,7 +180,7 @@ void execute()
                             }
                             break;
 
-            case HALT:      printf("*** Execução do Simpletron concluída ***\n\n");
+            case HALT:      printf("*** ExecuÃ§Ã£o do Simpletron concluÃ­da ***\n\n");
                             dump();
                             return;
         }
@@ -197,7 +197,7 @@ void dump()
     printf("codigoOperacao      %.2d\n", codigoOperacao);
     printf("operando            %.2d\n\n", operando);
 
-    printf("MEMÓRIA:\n");
+    printf("MEMÃ“RIA:\n");
 
     printf("%2c", ' ');
     for (int i=0; i<10; i++)
@@ -221,8 +221,8 @@ void dump()
 void welcome()
 {
     printf("*** Bem vindo ao Simpletron! ***\n");
-    printf("*** Por favor digite uma instrução (ou palavra de dados) de seu programa por vez. ***\n");
-    printf("*** Digitarei o numero da posição e um ponto de interrogação (?). ***\n");
-    printf("*** Digite então a palavra para aquela posição. ***\n");
-    printf("*** Digite o valor sentinela -99999 para encerrar a digitação de seu programa. ***\n");
+    printf("*** Por favor digite uma instruÃ§Ã£o (ou palavra de dados) de seu programa por vez. ***\n");
+    printf("*** Digitarei o numero da posiÃ§Ã£o e um ponto de interrogaÃ§Ã£o (?). ***\n");
+    printf("*** Digite entÃ£o a palavra para aquela posiÃ§Ã£o. ***\n");
+    printf("*** Digite o valor sentinela -99999 para encerrar a digitaÃ§Ã£o de seu programa. ***\n");
 }
