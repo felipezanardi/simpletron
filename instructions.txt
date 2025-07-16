@@ -1,0 +1,11 @@
+How to add your code to a file:
+Access the Simpletron folder where the program's file is located (simpletron.c).
+In that folder, look for the file named 'scripts.txt', and insert the code
+you want there.
+Save and execute.
+
+The 'scripts.txt' file already comes with a code that receives two values and
+returns the greater between them.
+
+To execute, just compile and execute the 'simpletron.c' file.
+Note: The "scripts.txt' file must be in the same directory as the executable for the program to find it.
